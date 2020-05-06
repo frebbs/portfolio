@@ -1,0 +1,181 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    background-color: brown;
+    align-items: center;
+    justify-content: center;
+}
+
+.item p {
+    font-size: 5rem;
+    color: oldlace;
+}
+
+.animated {
+    transition-property: background-color;
+    transition-duration: 3s;
+}
+
+.changeColor {
+    transition: color 2s;
+}
+
+.growMe {
+    transition: font-size 2s, color 2s;
+}
+
+/* Register Form */
+
+.register-form {
+    height: 50vh;
+    width: 500px;
+    background-color: rgba(75,85,75, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50px;
+}
+
+#registerBtn {
+    margin: 10px;
+    align-self: center;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: burlywood;
+    color: black;
+    font-size: 1rem;
+    font-weight: bolder;
+    align-self: center;
+}
+
+/* End Register Form */
+
+.login-form {
+    height: 50vh;
+    width: 500px;
+    background-color: rgba(0,0,255, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    border-radius: 50px;
+}
+
+input {
+    width: 250px;
+    height: 35px;
+    margin: 5px;
+    font-size: 1rem;
+    border: none;
+}
+
+.input-item p {
+    font-size: 1.5rem;
+    margin: 5px;
+    text-align: center;
+}
+
+#loginBtn {
+    margin: 10px;
+    align-self: center;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: burlywood;
+    color: black;
+    font-size: 1rem;
+    font-weight: bolder;
+    align-self: center;
+}
+
+.loginBtn {
+    display: flex;
+    justify-content: center;
+}
+
+
+.flex-container  {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(255,23,23,.4);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    font-size: .75rem;
+  }
+  
+  .logo {
+    margin: 0 0 0 .45em;
+  }
+      .logo a {
+        color: oldlace;
+      }
+  
+      .logo, .navigation {
+          list-style: none;
+          text-transform: uppercase;
+      }
+  
+      .logo a, .navigation a {
+          text-decoration: none;
+          letter-spacing: .45rem;
+      }
+  
+  .navigation  {
+    display: flex;
+  }
+  
+  .navigation a {
+    display: block;
+    padding: 0.2rem 0.6rem;
+    color: oldlace;
+  }
+  
+  .navigation a:hover {
+      background: green;
+  }
+  
+  .dropbtn {
+    color: white;
+    padding: 16px;
+    font-size: 0.75rem;
+    border: none;
+    overflow: visible;
+  }
+  
+      .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255,23,23,.4);
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+  .dropdown-content a {
+    /* color: black; */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+  }
+  
+  .dropdown-content a:hover {background-color: rgba(0,0,0,.2);}
+  
+  .dropdown:hover .dropdown-content {display: block;}
+  
