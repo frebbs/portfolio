@@ -1,0 +1,39 @@
+body {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-family: 'Teko', sans-serif;
+}
+
+#member-profile {
+    padding-top: 20px;
+}
+
+.container {
+    height: 100vh;
+    display: flex;
+    background-color: brown;
+    align-items: center;
+    justify-content: center;
+}
+
+.left-side {
+    width: 60vw;
+}
+
+.right-side {
+    width: 40vw;
+}
+
+.both-sides {
+    height: 95vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Profile */
+
+.user-photo img {
+    max-height: 200px;
+}

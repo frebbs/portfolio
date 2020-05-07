@@ -5,135 +5,155 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
 </head>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/homepage.css">
 <body>
 
+    <%- include ('./partials/_navigation') %>
 
-    <div class="flex-container animated">
-        <h1 class="logo"><a class="link-item changeColor" href="#">AD</a></h1>
-        <ul class="navigation">
-            <li><a class="link-item changeColor" href="#">Home</a></li>
-            <li><a class="link-item changeColor" href="#">About</a></li>
-            <li><a class="link-item changeColor" href="#">Login</a></li>
-            <li><a class="link-item changeColor" href="#">Register</a></li>
-            <div class="dropdown">
-                <li><a class="link-item changeColor" href="#" class="dropbtn">Background</a></li>
-                <div class="dropdown-content">
-                    <a href="#">Choose a color for the background</a>
-                  <a class="link-item changeColor" href="#" id="blackLink">Black</a>
-                  <a class="link-item changeColor" href="#" id="greenLink">Green</a>
-                  <a class="link-item changeColor" href="#" id="brownLink">Brown</a>
-                </div>
-              </div>
-        </ul>
-    </div>
-        
-      
+    <div id="jsContent">
 
-    <div class="container animated">
-        <div class="item">
-            <p class="growMe"><i><span class="item1">Welcome</span><span class="item2"> to my </span><span class="item3">portfolio</span></i></p>
-        </div>
     </div>
 
 
-
-    <div class="container register">
-        <div class="register-form">
-            <form action="/register/user" method="POST">
-                    <h3>Register now!</h3>
-
-                <div class="input-item">
-                    <p>Email:</p> <input type="email" name="email" id="email">
-                </div>
-                <div class="input-item">
-                    <p>Username:</p> <input type="username" name="username" id="username">
-                </div>
-                <div class="input-item">
-                    <p>Password:</p> <input type="password" name="password" id="password">
-                </div>
-                <div class="input-item">
-                    <p>Confirm password:</p> <input type="password2" name="password2" id="password2">
-                </div>  
-                <div class="input-item loginBtn">
-                    <button id="registerBtn">Register</button>
-                </div>
-
-            </form>
-        </div>
-    </div>
-
-    <div class="container login">
-        <div class="login-form">
-            <form action="/login/user" method="POST">
-                <h3>Login here</h3>
-                <div class="input-item">
-                    <p>Email:</p> <input type="email" name="email" id="email">
-                </div>
-                <div class="input-item">
-                    <p>Password:</p> <input type="password" name="password" id="password">
-                </div>
-                <div class="input-item loginBtn">
-                    <button id="loginBtn">Login</button>
-                </div>
-
-            </form>
-        </div>
-    </div>
 
 
     <script>
-        let container = document.querySelector('.container');
-        let item = document.querySelector('.item p');
 
-        // Menu
+        let portfolio = `
+            <div class="container animated portfolio">
+                <div class="item">
+                    <p class="growMe"><i><span class="item1">Welcome</span><span class="item2"> to my </span><span class="item3">portfolio</span></i></p>
+                </div>
+            </div>
+        `
+        let register =  `
+            <div class="container register">
+                <div class="register-form">
+                    <form action="/register/user" method="POST">
+                            <h3>Register now!</h3>
 
-        let menuItems = document.querySelectorAll('.link-item')
-        let logo = document.querySelector('.logo a');
-        // links
-        let blackLink = document.querySelector('#blackLink');
-        let greenLink = document.querySelector('#greenLink');
-        let brownLink = document.querySelector('#brownLink')
-        // let spans = document.querySelectorAll('span')
+                        <div class="input-item">
+                            <p>Email:</p> <input type="email" name="email" id="email">
+                        </div>
+                        <div class="input-item">
+                            <p>Username:</p> <input type="username" name="username" id="username">
+                        </div>
+                        <div class="input-item">
+                            <p>Password:</p> <input type="password" name="password" id="password">
+                        </div>
+                        <div class="input-item">
+                            <p>Confirm password:</p> <input type="password2" name="password2" id="password2">
+                        </div>  
+                        <div class="input-item loginBtn">
+                            <button id="registerBtn">Register</button>
+                        </div>
 
-        blackLink.onclick = function() {
-            container.style.backgroundColor = 'black'
-            item.style.fontSize = '7rem'
-            item.style.color = ' whitesmoke'
-            menuItems.forEach((item) => {
-                item.style.color = 'whitesmoke'
-            })
-            setTimeout( () => {
-                item.style.fontSize = '5rem'
-            }, 1000)
-        };
+                    </form>
+                </div>
+            </div>
+        `
+        let login = `
+            <div class="container login">
+                <div class="login-form">
+                    <form action="/login/user" method="POST">
+                        <h3>Login here</h3>
+                        <div class="input-item">
+                            <p>Email:</p> <input type="email" name="email" id="email">
+                        </div>
+                        <div class="input-item">
+                            <p>Password:</p> <input type="password" name="password" id="password">
+                        </div>
+                        <div class="input-item loginBtn">
+                            <button id="loginBtn">Login</button>
+                        </div>
 
-        greenLink.onclick = function() {
-            container.style.backgroundColor = 'green'
-            item.style.fontSize = '7rem'
-            item.style.color = ' black'
-            menuItems.forEach((item) => {
-                item.style.color = 'black'
-            })
-            setTimeout( () => {
-                item.style.fontSize = '5rem'
-            }, 1000)
-        };
-
-        brownLink.onclick = function() {
-            container.style.backgroundColor = 'brown'
-            item.style.fontSize = '7rem'
-            item.style.color = 'oldlace'
-            menuItems.forEach((item) => {
-                item.style.color = 'oldlace'
-            })
-            setTimeout( () => {
-                item.style.fontSize = '5rem'
-            }, 1000)
-        };
-        
+                    </form>
+                </div>
+            </div>
+        `
 
 
+        window.onload = (e) => {
+            let docBody = document.querySelector('#jsContent')
+            docBody.innerHTML += portfolio
+        }
+
+
+        // Links
+
+        let loginLink = document.querySelector('#loginLink')
+        let homeLink = document.querySelector('#homeLink')
+        let registerLink = document.querySelector('#registerLink')
+
+
+        loginLink.addEventListener('click', (e) => {
+            e.preventDefault()
+            let docBody = document.querySelector('#jsContent')
+            docBody.innerHTML = login
+        })
+
+        homeLink.addEventListener('click', (e) => {
+            e.preventDefault()
+            let docBody = document.querySelector('#jsContent')
+            docBody.innerHTML = portfolio
+        })
+
+        registerLink.addEventListener('click', (e) => {
+            e.preventDefault()
+            let docBody = document.querySelector('#jsContent')
+            docBody.innerHTML = register
+        })
+
+    // This is the old stuff, will move and delete whats not needed
+        // let container = document.querySelector('.container');
+        // let item = document.querySelector('.item p');
+
+        // // Menu
+
+        // let menuItems = document.querySelectorAll('.link-item')
+        // let logo = document.querySelector('.logo a');
+        // // links
+        // let blackLink = document.querySelector('#blackLink');
+        // let greenLink = document.querySelector('#greenLink');
+        // let brownLink = document.querySelector('#brownLink')
+        // // let spans = document.querySelectorAll('span')
+
+        // blackLink.onclick = function() {
+        //     container.style.backgroundColor = 'black'
+        //     item.style.fontSize = '7rem'
+        //     item.style.color = ' whitesmoke'
+        //     menuItems.forEach((item) => {
+        //         item.style.color = 'whitesmoke'
+        //     })
+        //     setTimeout( () => {
+        //         item.style.fontSize = '5rem'
+        //     }, 1000)
+        // };
+
+        // greenLink.onclick = function() {
+        //     container.style.backgroundColor = 'green'
+        //     item.style.fontSize = '7rem'
+        //     item.style.color = ' black'
+        //     menuItems.forEach((item) => {
+        //         item.style.color = 'black'
+        //     })
+        //     setTimeout( () => {
+        //         item.style.fontSize = '5rem'
+        //     }, 1000)
+        // };
+
+        // brownLink.onclick = function() {
+        //     container.style.backgroundColor = 'brown'
+        //     item.style.fontSize = '7rem'
+        //     item.style.color = 'oldlace'
+        //     menuItems.forEach((item) => {
+        //         item.style.color = 'oldlace'
+        //     })
+        //     setTimeout( () => {
+        //         item.style.fontSize = '5rem'
+        //     }, 1000)
+        // };
     </script>
 </body>
 </html>
