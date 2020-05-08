@@ -3,7 +3,13 @@ body {
     padding: 0;
     margin: 0;
     font-family: 'Teko', sans-serif;
+    color: #FFF7F7;
 }
+
+a {
+    color: #FFF7F7;
+}
+
 
 #member-profile {
     padding-top: 20px;
@@ -12,7 +18,7 @@ body {
 .container {
     height: 100vh;
     display: flex;
-    background-color: brown;
+    background-color: #161E18;
     align-items: center;
     justify-content: center;
 }

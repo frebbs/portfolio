@@ -3,7 +3,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: rgba(255,23,23,.4);
+    background: rgba(255,247,247,0.1);
     position: fixed;
     top: 0;
     width: 100%;
@@ -13,10 +13,6 @@
   .logo {
     margin: 0 0 0 .45em;
   }
-      .logo a {
-        color: oldlace;
-      }
-  
       .logo, .navigation {
           list-style: none;
           text-transform: uppercase;
@@ -34,15 +30,13 @@
   .navigation a {
     display: block;
     padding: 0.2rem 0.6rem;
-    color: oldlace;
   }
   
   .navigation a:hover {
-      background: green;
+      background: #807C7C;
   }
   
   .dropbtn {
-    color: white;
     padding: 16px;
     font-size: 0.75rem;
     border: none;

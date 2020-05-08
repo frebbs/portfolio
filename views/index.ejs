@@ -20,13 +20,13 @@
             <div class="container animated portfolio">
                 <div class="item">
                     <p class="growMe"><i>Welcome to my portfolio</span></i></p>
-                    <p class="growMe"><i>A work in progress</span></i></p>
+                    <p class="growMe littleP"><i>A work in progress</span></i></p>
                 </div>
             </div>
         `
         let register =  `
             <div class="container animated register">
-                <div class="register-form">
+                <div class="registerForm animated">
                     <form action="/register/user" method="POST">
                             <h3>Register now!</h3>
 
@@ -34,13 +34,13 @@
                             <p>Email:</p> <input type="email" name="email" id="email">
                         </div>
                         <div class="input-item">
-                            <p>Username:</p> <input type="username" name="username" id="username">
+                            <p>Username:</p> <input type="text" name="username" id="username">
                         </div>
                         <div class="input-item">
                             <p>Password:</p> <input type="password" name="password" id="password">
                         </div>
                         <div class="input-item">
-                            <p>Confirm password:</p> <input type="password2" name="password2" id="password2">
+                            <p>Confirm password:</p> <input type="password" name="password2" id="password2">
                         </div>  
                         <div class="input-item loginBtn">
                             <button id="registerBtn">Register</button>
@@ -52,7 +52,7 @@
         `
         let login = `
             <div class="container animated login">
-                <div class="login-form">
+                <div class="loginForm animated">
                     <form action="/login/user" method="POST">
                         <h3>Login here</h3>
                         <div class="input-item">
@@ -90,28 +90,46 @@
             container.style.backgroundColor = 'white';
 
             setTimeout(() => {
-                    container.style.backgroundColor = 'black';
+                    container.style.backgroundColor = '#0D0C0C';
                 }, 50)
 
             // Load other pages the same way with click listeners
 
             if (loginLink && registerLink) {
-                    loginLink.addEventListener('click', (e) => {
+                loginLink.addEventListener('click', (e) => {
                     e.preventDefault()
                     let docBody = document.querySelector('#jsContent')
                     docBody.innerHTML = login
+                    const container = document.querySelector('.container')
+                    const loginForm = document.querySelector('.loginForm')
+
+                    container.style.backgroundColor = 'white';
+                    loginForm.style.backgroundColor = 'white';
+                    
+                    setTimeout(() => {
+                            container.style.backgroundColor = '#0D0C0C';
+                            loginForm.style.backgroundColor = '#403E3E';
+                        }, 50)
                 })
 
                 registerLink.addEventListener('click', (e) => {
                     e.preventDefault()
                     let docBody = document.querySelector('#jsContent')
                     docBody.innerHTML = register
+                    const container = document.querySelector('.container')
+                    const registerForm = document.querySelector('.registerForm')
+
+                    container.style.backgroundColor = 'white';
+                    registerForm.style.backgroundColor = 'white';
+
+
+                    setTimeout(() => {
+                            container.style.backgroundColor = '#0D0C0C';
+                            registerForm.style.backgroundColor = '#403E3E';
+                        }, 50)
 
                 })
             }
-
-
-
         };
 
         // Links
