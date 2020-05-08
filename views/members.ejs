@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome <%= profile.username %></title>
+    <title>Welcome <%= session.username %></title>
     <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/members.css">
 </head>
@@ -15,14 +15,14 @@
         <div class="container" id="member-profile">
             <div class="left-side both-sides">
                 <div id="profile">
-                    <h1>Profile of <%= profile.username%> </h1>
+                    <h1>Profile of <%= session.username%> </h1>
                     <div class="user-photo">
                         <img src="https://i.pinimg.com/474x/1a/80/18/1a8018e3b18178154bc749dcc4ad11d3.jpg" alt="Male Photo">
                     </div>
                     <div id="user-details">
-                        <p>Email: <%= profile.email %></p>
-                        <p>Name: <%= profile.username %></p>
-                        <p>Active Account: <%= profile.loggedIn%></p>
+                        <p>Email: <%= session.email %></p>
+                        <p>Name: <%= session.username %></p>
+                        <p>Active Account: <%= session.accountStatus.active%></p>
                     </div>
                 </div>
     
@@ -31,6 +31,8 @@
                 <h1>Recent Activity </h1>
             </div>
         </div>
+
+        <%console.log(session)%>
     </body>
     </div>
 </html>

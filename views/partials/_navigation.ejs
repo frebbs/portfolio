@@ -4,7 +4,7 @@
     <ul class="navigation">
         <li><a class="link-item changeColor"  id="homeLink" href="/">Home</a></li>
         <li><a class="link-item changeColor" href="#">About</a></li>
-        <% if (!loggedIn) { %>
+        <% if (!session) { %>
             <li><a class="link-item changeColor" id="loginLink" href="#">Login</a></li>
             <li><a class="link-item changeColor" id="registerLink" href="#">Register</a></li>
         <% } else { %>

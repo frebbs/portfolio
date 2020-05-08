@@ -1,10 +1,12 @@
 const express = require('express')
 const router = express.Router()
 const { UserProfile} = require('../schema/userSchema');
+const bcrypt = require('bcrypt');
+const SALT = 10;
 
 
 router.get('/', (req, res) => {
-    res.render('index', {loggedIn: req.session.profile ? true : false});
+    res.render('index', {session: req.session ? req.session.userData : null});
 });
 
 router.get('/json', async(req, res) => {
@@ -17,27 +19,54 @@ router.get('/logout/user', (req, res) => {
     res.redirect('/')
 })
 
-router.post('/register/user', (req, res) => {
+router.post('/register/user', async(req, res) => {
 
-    const newUser = new UserProfile({
-        profile: {
-            emailAddress: req.body.email,
-            username: req.body.username,
-        },
-        security: {
-            password: req.body.password
-        }
-    });
-    newUser.save();
-    res.redirect('/');;
+    const {email, username, password, password2} = req.body;
+    
+    await bcrypt.hash(password, SALT, function(err, hash) {
+        if (err) console.log(err)
+        const newUser = new UserProfile({
+            profile: {
+                emailAddress: email,
+                username: username,
+            },
+            security: {
+                password: hash
+            }
+        });
+        newUser.save();
+        return res.redirect('/');;
+    })
 });
 
 router.post('/login/user', async(req, res) => {
     const {email, password, password2} = req.body;
-    console.log(email)
     let foundUser = await UserProfile.findOne({"profile.emailAddress": email}).select('+security.password')
-    console.log(foundUser)
-    res.redirect('/')
+    if (foundUser) {
+        await bcrypt.compare(password, foundUser.security.password, (err, resp) => {
+            if (err) console.log(err)
+            if (resp) {
+                let foundUserProfile = {
+                    username: foundUser.profile.username,
+                    email: foundUser.profile.emailAddress,
+                    accountStatus: foundUser.metaData.accountStatus,
+                    admin: foundUser.security.admin,
+                    userCreated: foundUser.metaData.userCreated,
+                }
+    
+                req.session.userData = {
+                    profile: foundUserProfile
+                }
+        
+                return res.redirect('/members')
+    
+            } else {
+                return res.redirect('/')
+            }
+        })
+    } else {
+        res.redirect('/')
+    }
 
 });
 

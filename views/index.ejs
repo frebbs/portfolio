@@ -95,18 +95,22 @@
 
             // Load other pages the same way with click listeners
 
-            loginLink.addEventListener('click', (e) => {
-                e.preventDefault()
-                let docBody = document.querySelector('#jsContent')
-                docBody.innerHTML = login
-            })
+            if (loginLink && registerLink) {
+                    loginLink.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    let docBody = document.querySelector('#jsContent')
+                    docBody.innerHTML = login
+                })
 
-            registerLink.addEventListener('click', (e) => {
-                e.preventDefault()
-                let docBody = document.querySelector('#jsContent')
-                docBody.innerHTML = register
+                registerLink.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    let docBody = document.querySelector('#jsContent')
+                    docBody.innerHTML = register
 
-            })
+                })
+            }
+
+
 
         };
 
