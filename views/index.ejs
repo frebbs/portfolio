@@ -8,22 +8,19 @@
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/homepage.css">
 <body>
-
     <%- include ('./partials/_navigation') %>
 
     <div id="jsContent">
-
+        <!--    JavaScript will fill this content out    -->
     </div>
-
-
-
 
     <script>
 
         let portfolio = `
             <div class="container animated portfolio">
                 <div class="item">
-                    <p class="growMe"><i><span class="item1">Welcome</span><span class="item2"> to my </span><span class="item3">portfolio</span></i></p>
+                    <p class="growMe"><i>Welcome to my portfolio</span></i></p>
+                    <p class="growMe"><i>A work in progress</span></i></p>
                 </div>
             </div>
         `
@@ -105,55 +102,7 @@
             docBody.innerHTML = register
         })
 
-    // This is the old stuff, will move and delete whats not needed
-        // let container = document.querySelector('.container');
-        // let item = document.querySelector('.item p');
 
-        // // Menu
-
-        // let menuItems = document.querySelectorAll('.link-item')
-        // let logo = document.querySelector('.logo a');
-        // // links
-        // let blackLink = document.querySelector('#blackLink');
-        // let greenLink = document.querySelector('#greenLink');
-        // let brownLink = document.querySelector('#brownLink')
-        // // let spans = document.querySelectorAll('span')
-
-        // blackLink.onclick = function() {
-        //     container.style.backgroundColor = 'black'
-        //     item.style.fontSize = '7rem'
-        //     item.style.color = ' whitesmoke'
-        //     menuItems.forEach((item) => {
-        //         item.style.color = 'whitesmoke'
-        //     })
-        //     setTimeout( () => {
-        //         item.style.fontSize = '5rem'
-        //     }, 1000)
-        // };
-
-        // greenLink.onclick = function() {
-        //     container.style.backgroundColor = 'green'
-        //     item.style.fontSize = '7rem'
-        //     item.style.color = ' black'
-        //     menuItems.forEach((item) => {
-        //         item.style.color = 'black'
-        //     })
-        //     setTimeout( () => {
-        //         item.style.fontSize = '5rem'
-        //     }, 1000)
-        // };
-
-        // brownLink.onclick = function() {
-        //     container.style.backgroundColor = 'brown'
-        //     item.style.fontSize = '7rem'
-        //     item.style.color = 'oldlace'
-        //     menuItems.forEach((item) => {
-        //         item.style.color = 'oldlace'
-        //     })
-        //     setTimeout( () => {
-        //         item.style.fontSize = '5rem'
-        //     }, 1000)
-        // };
     </script>
 </body>
 </html>
