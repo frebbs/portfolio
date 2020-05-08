@@ -10,24 +10,27 @@
 <body>
     <%- include('./partials/_navigation') %>
 
-    <div class="container" id="member-profile">
-        <div class="left-side both-sides">
-            <div id="profile">
-                <h1>Profile of <%= profile.username%> </h1>
-                <div class="user-photo">
-                    <img src="https://i.pinimg.com/474x/1a/80/18/1a8018e3b18178154bc749dcc4ad11d3.jpg" alt="Male Photo">
+    <div id="jsContent">
+        <!--    JavaScript will fill this content out    -->
+        <div class="container" id="member-profile">
+            <div class="left-side both-sides">
+                <div id="profile">
+                    <h1>Profile of <%= profile.username%> </h1>
+                    <div class="user-photo">
+                        <img src="https://i.pinimg.com/474x/1a/80/18/1a8018e3b18178154bc749dcc4ad11d3.jpg" alt="Male Photo">
+                    </div>
+                    <div id="user-details">
+                        <p>Email: <%= profile.email %></p>
+                        <p>Name: <%= profile.username %></p>
+                        <p>Active Account: <%= profile.loggedIn%></p>
+                    </div>
                 </div>
-                <div id="user-details">
-                    <p>Email: <%= profile.email %></p>
-                    <p>Name: <%= profile.username %></p>
-                    <p>Active Account: <%= profile.loggedIn%></p>
-                </div>
+    
             </div>
-
+            <div class="right-side both-sides">
+                <h1>Recent Activity </h1>
+            </div>
         </div>
-        <div class="right-side both-sides">
-            <h1>Recent Activity </h1>
-        </div>
+    </body>
     </div>
-</body>
 </html>
