@@ -1,5 +1,7 @@
 const express = require('express')
 const router = express.Router()
+const { UserProfile} = require('../schema/userSchema');
+
 let users = [
     {
         username: 'Aaron',
@@ -7,15 +9,10 @@ let users = [
         password: 'password',
         loggedIn: false
     },
-    {
-        username: 'Bob',
-        email: 'bob@gmail.com',
-        password: 'password',
-        loggedIn: false
-    },
 ]
 
 router.get('/', (req, res) => {
+    console.log(users)
     res.render('index', {loggedIn: req.session.profile ? true : false});
 });
 
@@ -29,7 +26,14 @@ router.get('/logout/user', (req, res) => {
 })
 
 router.post('/register/user', (req, res) => {
-    users.push({username: req.body.username, email: req.body.email, password: req.body.password, loggedIn: false})
+
+
+    const newUser = new UserProfile({
+        emailAddress: req.body.email,
+        username: req.body.username,
+        password: req.body.password
+    });
+    users.push(newUser)
     res.redirect('/');;
 });
 
