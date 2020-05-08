@@ -2,21 +2,13 @@ const express = require('express')
 const router = express.Router()
 const { UserProfile} = require('../schema/userSchema');
 
-let users = [
-    {
-        username: 'Aaron',
-        email: 'aaron@gmail.com',
-        password: 'password',
-        loggedIn: false
-    },
-]
 
 router.get('/', (req, res) => {
-    console.log(users)
     res.render('index', {loggedIn: req.session.profile ? true : false});
 });
 
-router.get('/json', (req, res) => {
+router.get('/json', async(req, res) => {
+    let users = await UserProfile.find();
     res.json(users);
 });
 
@@ -27,33 +19,25 @@ router.get('/logout/user', (req, res) => {
 
 router.post('/register/user', (req, res) => {
 
-
     const newUser = new UserProfile({
-        emailAddress: req.body.email,
-        username: req.body.username,
-        password: req.body.password
+        profile: {
+            emailAddress: req.body.email,
+            username: req.body.username,
+        },
+        security: {
+            password: req.body.password
+        }
     });
-    users.push(newUser)
+    newUser.save();
     res.redirect('/');;
 });
 
-router.post('/login/user', (req, res) => {
-
-    let foundUser = users.forEach((item) => {
-        if (item.email === req.body.email) {
-                req.session.profile = {
-                    username: item.username,
-                    email: item.email,
-                    ID: req.sessionID,
-                    loggedIn: true
-                }
-                return true
-            }
-            
-        })
-
-
-            res.redirect('/members')
+router.post('/login/user', async(req, res) => {
+    const {email, password, password2} = req.body;
+    console.log(email)
+    let foundUser = await UserProfile.findOne({"profile.emailAddress": email}).select('+security.password')
+    console.log(foundUser)
+    res.redirect('/')
 
 });
 
