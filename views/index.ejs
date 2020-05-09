@@ -13,7 +13,7 @@
     <div id="jsContent">
         <!--    JavaScript will fill this content out    -->
     </div>
-
+    <script src="/JavaScript/jQuery.js"></script>
     <script>
 
         let portfolio = `
@@ -79,15 +79,15 @@
 
             // JS Stuff happens here
             let docBody = document.querySelector('#jsContent')
-
-            // Insert content in to the docBody
             docBody.innerHTML += portfolio
-
+            $(docBody).hide();
+            // Insert content in to the docBody
+            setTimeout(() => {
+                $(docBody).fadeIn('slow')
+            }, 200)
             // Grab the container after insert
             const container = document.querySelector('.container')
 
-            // Style it
-            container.style.backgroundColor = 'white';
 
             setTimeout(() => {
                     container.style.backgroundColor = '#0D0C0C';
@@ -95,41 +95,56 @@
 
             // Load other pages the same way with click listeners
 
-            if (loginLink && registerLink) {
-                loginLink.addEventListener('click', (e) => {
+             if  (loginLink && registerLink) {loginLink.addEventListener('click', (e) => {
                     e.preventDefault()
-                    let docBody = document.querySelector('#jsContent')
-                    docBody.innerHTML = login
-                    const container = document.querySelector('.container')
-                    const loginForm = document.querySelector('.loginForm')
 
-                    container.style.backgroundColor = 'white';
-                    loginForm.style.backgroundColor = 'white';
-                    
-                    setTimeout(() => {
-                            container.style.backgroundColor = '#0D0C0C';
-                            loginForm.style.backgroundColor = '#403E3E';
-                        }, 50)
+                     $('#jsContent').fadeOut('slow')
+
+                     setTimeout(() => {
+                         docBody.innerHTML = login
+
+                     }, 600)
+                     setTimeout(() => {
+
+                         $(docBody).fadeIn('slow')
+                         container.style.backgroundColor = 'white';
+                     }, 800)
+
                 })
 
-                registerLink.addEventListener('click', (e) => {
-                    e.preventDefault()
-                    let docBody = document.querySelector('#jsContent')
-                    docBody.innerHTML = register
-                    const container = document.querySelector('.container')
-                    const registerForm = document.querySelector('.registerForm')
-
-                    container.style.backgroundColor = 'white';
-                    registerForm.style.backgroundColor = 'white';
-
-
-                    setTimeout(() => {
-                            container.style.backgroundColor = '#0D0C0C';
-                            registerForm.style.backgroundColor = '#403E3E';
-                        }, 50)
-
-                })
             }
+
+            registerLink.addEventListener('click', (e) => {
+                e.preventDefault()
+                $('#jsContent').fadeOut('slow')
+
+                setTimeout(() => {
+                    docBody.innerHTML = register
+
+                }, 600)
+                setTimeout(() => {
+
+                    $(docBody).fadeIn('slow')
+                    container.style.backgroundColor = 'white';
+                }, 800)
+
+            })
+
+            homeLink.addEventListener('click', (e) => {
+                e.preventDefault()
+                $('#jsContent').fadeOut('slow')
+
+                setTimeout(() => {
+                    docBody.innerHTML = portfolio
+
+                }, 600)
+                setTimeout(() => {
+
+                    $(docBody).fadeIn('slow')
+                    container.style.backgroundColor = 'white';
+                }, 800)
+
+            })
         };
 
         // Links

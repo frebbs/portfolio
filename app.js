@@ -18,7 +18,7 @@ app.use([
     cors(),
     cookieSession({
         name: 'ADsession',
-        secret: 'this is very specical, hide the real key!',
+        secret: 'this is very special, hide the real key!',
               // Cookie Options
         maxAge: 60 * 60 * 1000 // 1 hour??
       })
