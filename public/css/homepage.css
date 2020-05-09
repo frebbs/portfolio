@@ -14,7 +14,7 @@ a {
 .container {
     height: 100vh;
     display: flex;
-    background-color: #161E18;
+    background-color: #0D0C0C;
     align-items: center;
     justify-content: center;
 }
@@ -70,7 +70,7 @@ a {
 
 .loginForm {
     padding: 75px;
-    background-color: rgba(255,23,23,.3);
+    background-color: #403E3E;
     display: flex;
     align-items: center;
     justify-content: center;
