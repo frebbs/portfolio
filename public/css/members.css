@@ -18,24 +18,28 @@ a {
 .container {
     height: 100vh;
     display: flex;
-    background-color: #161E18;
+    background-color: #0D0C0C;
     align-items: center;
     justify-content: center;
 }
 
 .left-side {
     width: 60vw;
+    justify-content: center;
+    align-items: center;
+
 }
 
 .right-side {
     width: 40vw;
+    justify-content: flex-start;
+    align-items: center;
 }
 
 .both-sides {
     height: 95vh;
     display: flex;
-    align-items: center;
-    justify-content: center;
+
 }
 
 /* Profile */

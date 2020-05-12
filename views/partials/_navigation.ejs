@@ -9,7 +9,28 @@
             <li><a class="link-item changeColor" id="registerLink" href="#">Register</a></li>
         <% } else { %>
             <li><a class="link-item changeColor" href="/members">Profile</a></li>
+            <li>
+                <div class="dropdown">
+                    <a class="dropbtn">Actions</a>
+                    <div class="dropdown-content">
+                        <a id="blogPostLink" href="#">Create a Blog Post</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </li>
             <li><a class="link-item changeColor" href="/logout/user">Log Out</a></li>
         <% } %>
     </ul>
 </div>
+
+<script>
+
+    const blogPostLink = document.querySelector('#blogPostLink');
+
+    blogPostLink.addEventListener('click', (e) => {
+        e.preventDefault()
+        window.location.assign("/members/create/post");
+    })
+
+</script>
