@@ -25,10 +25,11 @@
                         <div id="userPosts">
                             <% posts.forEach((post) => { %>
                                 <div class="post">
-                                    <img class="postImg" src="https://icons.iconarchive.com/icons/designbolts/seo/256/Review-Post-icon.png" height="75px" width="75px">
+                                    <img class="postImg" src="<%= post.postImg%>" height="100px">
                                     <p class="postTitle"><i>Title: <%= post.title %></i></p>
                                     <p class="PostBodyPart"><i><%= post.body %></i></p>
                                     <p class="postedCreatedBy">Posted By: <%= post.createdBy.username %></p>
+                                    <a href="/members/posts/<%= post._id%>">Show full post</a>
                                 </div>
                             <% }) %>
                         </div>

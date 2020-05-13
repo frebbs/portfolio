@@ -10,7 +10,19 @@ a {
     color: #FFF7F7;
 }
 
-
+#postBtn {
+    margin: 10px;
+    align-self: center;
+    width: 100px;
+    height: 40px;
+    border: none;
+    border-radius: 25px;
+    background-color: grey;
+    color: white;
+    font-size: 1rem;
+    font-weight: bolder;
+    align-self: center;
+}
 #member-profile {
     padding-top: 20px;
 }

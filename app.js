@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const cors = require('cors');
 const PORT = 9000;
+const fileUpload = require('express-fileupload');
 const rootRouter = require('./router/rootRouter');
 const membersRouter = require('./router/membersRouter');
 
@@ -21,7 +22,8 @@ app.use([
         secret: 'this is very special, hide the real key!',
               // Cookie Options
         maxAge: 60 * 60 * 1000 // 1 hour??
-      })
+      }),
+    fileUpload()
 ])
 
 

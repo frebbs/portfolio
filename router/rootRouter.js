@@ -27,6 +27,10 @@ router.get('/logout/user', (req, res) => {
     res.redirect('/')
 })
 
+
+
+
+// POST DELETE PUT
 router.post('/register/user', async(req, res) => {
     const {email, username, password, password2} = req.body;
     
