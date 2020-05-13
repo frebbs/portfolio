@@ -6,143 +6,101 @@
     <title>Main Page</title>
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/fullpage.css">
 <link rel="stylesheet" href="/css/homepage.css">
+
 <body>
+<div class="nav">
     <%- include ('./partials/_navigation') %>
 
-    <div id="jsContent">
-        <!--    JavaScript will fill this content out    -->
+</div>
+
+    <div id="jsContent" class="container">
+<!--            JavaScript will fill this content out-->
+            <div id="fullpage">
+                <div class="section">
+                    <div class="slide">
+                        <div class="item">
+                            <p class="growMe"><i>A developers portfolio</i></p>
+                            <p class="growMe littleP"><i>A work in progress</i></p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="item recentPosts">
+                            <p class="growMe"><i>Some recent Posts</i></p>
+                            <p class="growMe littleP"><i>A work in progress</i></p>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="item login">
+                            <div class="loginForm animated">
+                                <form action="/login/user" method="POST">
+                                    <h2>Login here</h2>
+                                    <div class="input-item">
+                                        <p>Email:</p> <input type="email" name="email" id="email">
+                                    </div>
+                                    <div class="input-item">
+                                        <p>Password:</p> <input type="password" name="password" id="password">
+                                    </div>
+                                    <div class="input-item loginBtn">
+                                        <button id="loginBtn">Login</button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slide">
+                        <div class="registerForm item animated">
+                            <form action="/register/user" method="POST">
+                                <h2>Register now!</h2>
+                                <div class="input-item">
+                                    <p>Email:</p> <input type="email" name="email" id="email">
+                                </div>
+                                <div class="input-item">
+                                    <p>Username:</p> <input type="text" name="username" id="username">
+                                </div>
+                                <div class="input-item">
+                                    <p>Password:</p> <input type="password" name="password" id="password">
+                                </div>
+                                <div class="input-item">
+                                    <p>Confirm password:</p> <input type="password" name="password2" id="password2">
+                                </div>
+                                <div class="input-item loginBtn">
+                                    <button id="registerBtn">Register</button>
+                                </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+
     </div>
     <script src="/JavaScript/jQuery.js"></script>
+    <script src="/JavaScript/fullpage.js"></script>
+    <script src="/JavaScript/fullpage.extensions.min.js"></script>
+
     <script>
 
-        let portfolio = `
+        let slide2 = `
             <div class="container animated portfolio">
-                <div class="item">
-                    <p class="growMe"><i>Welcome to my portfolio</span></i></p>
-                    <p class="growMe littleP"><i>A work in progress</span></i></p>
+                <div class="item recentPosts">
+                    <p class="growMe"><i>Here will be some recent posts</span></i></p>
+                    <p class="growMe littleP"><i>Still a work in progress</span></i></p>
                 </div>
             </div>
         `
-        let register =  `
-            <div class="container animated register">
-                <div class="registerForm animated">
-                    <form action="/register/user" method="POST">
-                            <h3>Register now!</h3>
 
-                        <div class="input-item">
-                            <p>Email:</p> <input type="email" name="email" id="email">
-                        </div>
-                        <div class="input-item">
-                            <p>Username:</p> <input type="text" name="username" id="username">
-                        </div>
-                        <div class="input-item">
-                            <p>Password:</p> <input type="password" name="password" id="password">
-                        </div>
-                        <div class="input-item">
-                            <p>Confirm password:</p> <input type="password" name="password2" id="password2">
-                        </div>  
-                        <div class="input-item loginBtn">
-                            <button id="registerBtn">Register</button>
-                        </div>
-
-                    </form>
-                </div>
-            </div>
-        `
         let login = `
-            <div class="container animated login">
-                <div class="loginForm animated">
-                    <form action="/login/user" method="POST">
-                        <h3>Login here</h3>
-                        <div class="input-item">
-                            <p>Email:</p> <input type="email" name="email" id="email">
-                        </div>
-                        <div class="input-item">
-                            <p>Password:</p> <input type="password" name="password" id="password">
-                        </div>
-                        <div class="input-item loginBtn">
-                            <button id="loginBtn">Login</button>
-                        </div>
 
-                    </form>
-                </div>
-            </div>
         `
 
-
-        window.onload = (e) => {
-            // Navbar Links
-            let loginLink = document.querySelector('#loginLink')
-            let homeLink = document.querySelector('#homeLink')
-            let registerLink = document.querySelector('#registerLink')
-
-            // JS Stuff happens here
-            let docBody = document.querySelector('#jsContent')
-            docBody.innerHTML += portfolio
-            $(docBody).hide();
-            // Insert content in to the docBody
-            setTimeout(() => {
-                $(docBody).fadeIn('slow')
-            }, 200)
-            // Grab the container after insert
-            const container = document.querySelector('.container')
+        //    FullPage JS
+        var a=['EaPRH','table','error','warn','aUrNI','compile','apply','return\x20/\x22\x20+\x20this\x20+\x20\x22/','log','return\x20(function()\x20','info','GuNSo','sDZPI','trace','ghAhf','#fullpage','console','test','debug','AA82587C-010845DA-871E97A4-3BEBB876','constructor','rfQOY','{}.constructor(\x22return\x20this\x22)(\x20)','exception','njCYj','FWWhZ'];(function(b,c){var d=function(f){while(--f){b['push'](b['shift']());}};var e=function(){var f={'data':{'key':'cookie','value':'timeout'},'setCookie':function(j,m,n,o){o=o||{};var p=m+'='+n;var q=0x0;for(var r=0x0,s=j['length'];r<s;r++){var t=j[r];p+=';\x20'+t;var u=j[t];j['push'](u);s=j['length'];if(u!==!![]){p+='='+u;}}o['cookie']=p;},'removeCookie':function(){return'dev';},'getCookie':function(j,m){j=j||function(p){return p;};var n=j(new RegExp('(?:^|;\x20)'+m['replace'](/([.$?*|{}()[]\/+^])/g,'$1')+'=([^;]*)'));var o=function(p,q){p(++q);};o(d,c);return n?decodeURIComponent(n[0x1]):undefined;}};var g=function(){var j=new RegExp('\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*[\x27|\x22].+[\x27|\x22];?\x20*}');return j['test'](f['removeCookie']['toString']());};f['updateCookie']=g;var h='';var i=f['updateCookie']();if(!i){f['setCookie'](['*'],'counter',0x1);}else if(i){h=f['getCookie'](null,'counter');}else{f['removeCookie']();}};e();}(a,0x109));var b=function(c,d){c=c-0x0;var e=a[c];return e;};var g=function(){var k=!![];return function(l,m){var n=k?function(){if(b('0x6')!=='tiNyf'){if(m){if('VkHxv'==='ejftw'){that['console'][b('0x3')]=func;that[b('0xb')][b('0x18')]=func;that[b('0xb')][b('0xd')]=func;that[b('0xb')][b('0x5')]=func;that['console'][b('0x17')]=func;that[b('0xb')][b('0x12')]=func;that[b('0xb')][b('0x16')]=func;that[b('0xb')]['trace']=func;}else{var o=m['apply'](l,arguments);m=null;return o;}}}else{var r=k?function(){if(m){var s=m['apply'](l,arguments);m=null;return s;}}:function(){};k=![];return r;}}:function(){};k=![];return n;};}();var h=g(this,function(){var k=function(){if('ghAhf'===b('0x9')){var l=k[b('0xf')](b('0x2'))()[b('0x0')]('^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}');return!l[b('0xc')](h);}else{var n=k[b('0xf')](b('0x2'))()[b('0x0')]('^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}');return!n[b('0xc')](h);}};return k();});h();var i=function(){var k=!![];return function(l,m){var n=k?function(){if(m){if(b('0x7')===b('0x15')){var q=m[b('0x1')](l,arguments);m=null;return q;}else{var o=m[b('0x1')](l,arguments);m=null;return o;}}}:function(){};k=![];return n;};}();var j=i(this,function(){var k=function(){};var l;try{if(b('0x19')===b('0x14')){if(fn){var o=fn[b('0x1')](context,arguments);fn=null;return o;}}else{var m=Function(b('0x4')+b('0x11')+');');l=m();}}catch(o){if(b('0x13')!==b('0x10')){l=window;}else{var q=fn[b('0x1')](context,arguments);fn=null;return q;}}if(!l[b('0xb')]){if('UWRXS'==='pPbpW'){l=window;}else{l['console']=function(r){var s={};s[b('0x3')]=r;s[b('0x18')]=r;s[b('0xd')]=r;s['info']=r;s[b('0x17')]=r;s['exception']=r;s['table']=r;s[b('0x8')]=r;return s;}(k);}}else{l[b('0xb')][b('0x3')]=k;l[b('0xb')][b('0x18')]=k;l[b('0xb')][b('0xd')]=k;l[b('0xb')][b('0x5')]=k;l[b('0xb')][b('0x17')]=k;l[b('0xb')][b('0x12')]=k;l['console']['table']=k;l[b('0xb')][b('0x8')]=k;}});j();new fullpage(b('0xa'),{'autoScrolling':!![],'scrollHorizontally':!![],'licenseKey':b('0xe')});
 
 
-            setTimeout(() => {
-                    container.style.backgroundColor = '#0D0C0C';
-                }, 50)
-
-            // Load other pages the same way with click listeners
-
-             if  (loginLink && registerLink) {loginLink.addEventListener('click', (e) => {
-                    e.preventDefault()
-
-                     $('#jsContent').fadeOut('slow')
-
-                     setTimeout(() => {
-                         docBody.innerHTML = login
-                         container.style.backgroundColor = 'white';
-                     }, 600)
-                     setTimeout(() => {
-
-                         $(docBody).fadeIn('slow')
-                     }, 800)
-
-                })
-
-            }
-
-            registerLink.addEventListener('click', (e) => {
-                e.preventDefault()
-                $('#jsContent').fadeOut('slow')
-
-                setTimeout(() => {
-                    docBody.innerHTML = register
-                    container.style.backgroundColor = 'white';
-                }, 600)
-                setTimeout(() => {
-                    $(docBody).fadeIn('slow')
-                }, 800)
-
-            })
-
-            homeLink.addEventListener('click', (e) => {
-                e.preventDefault()
-                $('#jsContent').fadeOut('slow')
-
-                setTimeout(() => {
-                    docBody.innerHTML = portfolio
-
-                }, 600)
-                setTimeout(() => {
-
-                    $(docBody).fadeIn('slow')
-                    container.style.backgroundColor = 'white';
-                }, 800)
-
-            })
-        };
 
         // Links
 
