@@ -10,7 +10,7 @@ const SALT = 10;
 router.get('/', async(req, res) => {
     let posts = await UserPost.find().populate('createdBy', 'username')
         .sort({createdOn: 'desc'})
-        .limit(2)
+        .limit(4)
         .catch((err) => {
             console.log(err)
         })
