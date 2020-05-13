@@ -11,6 +11,13 @@ a {
     color: #FFF7F7;
 }
 
+.portfolioP {
+    font-size: 5rem;
+}
+
+.post {
+    padding-left: 20px;
+}
 .container {
     height: 100vh;
     display: flex;
@@ -19,29 +26,42 @@ a {
     justify-content: center;
 }
 
+.item {
+    text-align: center;
+    margin-left: 80px;
+}
 
-.item p {
-    font-size: 5rem;
+h3 {
+    padding-bottom: 0;
+    margin: 0;
     text-align: center;
 }
 
+#userPosts {
+    display: flex;
+}
+/*.item p {*/
+/*    font-size: 5rem;*/
+/*    text-align: center;*/
+/*}*/
+
+/*div.item.recentPosts {*/
+/*    text-align: left;*/
+/*}*/
+p.postTitle {
+    font-weight: bolder;
+}
+
+
 .littleP {
-    font-size: 4rem;
     color: #807C7C;
 }
 
-.animated {
-    transition-property: background-color;
-    transition-duration: 3s;
-}
 
 .changeColor {
     transition: color 2s;
 }
 
-.growMe {
-    transition: font-size 2s, color 2s;
-}
 
 /* Register Form */
 
@@ -55,22 +75,9 @@ a {
 }
 
 form h2 {
+    font-size: 2rem;
     text-align: center;
 }
-
-/*#registerBtn {*/
-/*    margin: 10px;*/
-/*    align-self: center;*/
-/*    width: 100px;*/
-/*    height: 40px;*/
-/*    border: none;*/
-/*    border-radius: 25px;*/
-/*    background-color: burlywood;*/
-/*    color: #161E18;*/
-/*    font-size: 1rem;*/
-/*    font-weight: bolder;*/
-/*    align-self: center;*/
-/*}*/
 
 /* End Register Form */
 

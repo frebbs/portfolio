@@ -10,102 +10,82 @@
 <link rel="stylesheet" href="/css/homepage.css">
 
 <body>
-<div class="nav">
-    <%- include ('./partials/_navigation') %>
-
-</div>
 
     <div id="jsContent" class="container">
-<!--            JavaScript will fill this content out-->
-            <div id="fullpage">
-                <div class="section">
-                    <div class="slide">
-                        <div class="item">
-                            <p class="growMe"><i>A developers portfolio</i></p>
-                            <p class="growMe littleP"><i>A work in progress</i></p>
+        <div id="fullpage">
+            <div class="section">
+                <div class="slide">
+                    <div class="item">
+                        <p class="portfolioP"><i>A developers portfolio</i></p>
+                    </div>
+                </div>
+                <div class="slide">
+                    <div class="item recentPosts">
+                        <h3>Recent posts</h3>
+                        <div id="userPosts">
+                            <% posts.forEach((post) => { %>
+                                <div class="post">
+                                    <p class="postTitle"><i><%= post.title %></i></p>
+                                    <p class="postedCreatedBy">Posted By: <%= post.createdBy.username %></p>
+                                </div>
+                            <% }) %>
                         </div>
                     </div>
-                    <div class="slide">
-                        <div class="item recentPosts">
-                            <p class="growMe"><i>Some recent Posts</i></p>
-                            <p class="growMe littleP"><i>A work in progress</i></p>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="item login">
-                            <div class="loginForm animated">
-                                <form action="/login/user" method="POST">
-                                    <h2>Login here</h2>
-                                    <div class="input-item">
-                                        <p>Email:</p> <input type="email" name="email" id="email">
-                                    </div>
-                                    <div class="input-item">
-                                        <p>Password:</p> <input type="password" name="password" id="password">
-                                    </div>
-                                    <div class="input-item loginBtn">
-                                        <button id="loginBtn">Login</button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="slide">
-                        <div class="registerForm item animated">
-                            <form action="/register/user" method="POST">
-                                <h2>Register now!</h2>
+                </div>
+                <%if (!session) {%>
+                <div class="slide">
+                    <div class="item login">
+                        <div class="loginForm">
+                            <form action="/login/user" method="POST">
+                                <h2>Login here</h2>
                                 <div class="input-item">
                                     <p>Email:</p> <input type="email" name="email" id="email">
                                 </div>
                                 <div class="input-item">
-                                    <p>Username:</p> <input type="text" name="username" id="username">
-                                </div>
-                                <div class="input-item">
                                     <p>Password:</p> <input type="password" name="password" id="password">
                                 </div>
-                                <div class="input-item">
-                                    <p>Confirm password:</p> <input type="password" name="password2" id="password2">
-                                </div>
                                 <div class="input-item loginBtn">
-                                    <button id="registerBtn">Register</button>
+                                    <button id="loginBtn">Login</button>
                                 </div>
                             </form>
                         </div>
-
                     </div>
                 </div>
-
+                <div class="slide">
+                    <div class="registerForm item animated">
+                        <form action="/register/user" method="POST">
+                            <h2>Register now!</h2>
+                            <div class="input-item">
+                                <p>Email:</p> <input type="email" name="email" id="email">
+                            </div>
+                            <div class="input-item">
+                                <p>Username:</p> <input type="text" name="username" id="username">
+                            </div>
+                            <div class="input-item">
+                                <p>Password:</p> <input type="password" name="password" id="password">
+                            </div>
+                            <div class="input-item">
+                                <p>Confirm password:</p> <input type="password" name="password2" id="password2">
+                            </div>
+                            <div class="input-item loginBtn">
+                                <button id="registerBtn">Register</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <% } %>
             </div>
-
+        </div>
     </div>
+<!--    Nav to be included at the end of content otherwise covered by Javascript frame -->
+    <%- include ('./partials/_navigation') %>
+
     <script src="/JavaScript/jQuery.js"></script>
     <script src="/JavaScript/fullpage.js"></script>
     <script src="/JavaScript/fullpage.extensions.min.js"></script>
-
     <script>
-
-        let slide2 = `
-            <div class="container animated portfolio">
-                <div class="item recentPosts">
-                    <p class="growMe"><i>Here will be some recent posts</span></i></p>
-                    <p class="growMe littleP"><i>Still a work in progress</span></i></p>
-                </div>
-            </div>
-        `
-
-        let login = `
-
-        `
-
         //    FullPage JS
-        var a=['EaPRH','table','error','warn','aUrNI','compile','apply','return\x20/\x22\x20+\x20this\x20+\x20\x22/','log','return\x20(function()\x20','info','GuNSo','sDZPI','trace','ghAhf','#fullpage','console','test','debug','AA82587C-010845DA-871E97A4-3BEBB876','constructor','rfQOY','{}.constructor(\x22return\x20this\x22)(\x20)','exception','njCYj','FWWhZ'];(function(b,c){var d=function(f){while(--f){b['push'](b['shift']());}};var e=function(){var f={'data':{'key':'cookie','value':'timeout'},'setCookie':function(j,m,n,o){o=o||{};var p=m+'='+n;var q=0x0;for(var r=0x0,s=j['length'];r<s;r++){var t=j[r];p+=';\x20'+t;var u=j[t];j['push'](u);s=j['length'];if(u!==!![]){p+='='+u;}}o['cookie']=p;},'removeCookie':function(){return'dev';},'getCookie':function(j,m){j=j||function(p){return p;};var n=j(new RegExp('(?:^|;\x20)'+m['replace'](/([.$?*|{}()[]\/+^])/g,'$1')+'=([^;]*)'));var o=function(p,q){p(++q);};o(d,c);return n?decodeURIComponent(n[0x1]):undefined;}};var g=function(){var j=new RegExp('\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*[\x27|\x22].+[\x27|\x22];?\x20*}');return j['test'](f['removeCookie']['toString']());};f['updateCookie']=g;var h='';var i=f['updateCookie']();if(!i){f['setCookie'](['*'],'counter',0x1);}else if(i){h=f['getCookie'](null,'counter');}else{f['removeCookie']();}};e();}(a,0x109));var b=function(c,d){c=c-0x0;var e=a[c];return e;};var g=function(){var k=!![];return function(l,m){var n=k?function(){if(b('0x6')!=='tiNyf'){if(m){if('VkHxv'==='ejftw'){that['console'][b('0x3')]=func;that[b('0xb')][b('0x18')]=func;that[b('0xb')][b('0xd')]=func;that[b('0xb')][b('0x5')]=func;that['console'][b('0x17')]=func;that[b('0xb')][b('0x12')]=func;that[b('0xb')][b('0x16')]=func;that[b('0xb')]['trace']=func;}else{var o=m['apply'](l,arguments);m=null;return o;}}}else{var r=k?function(){if(m){var s=m['apply'](l,arguments);m=null;return s;}}:function(){};k=![];return r;}}:function(){};k=![];return n;};}();var h=g(this,function(){var k=function(){if('ghAhf'===b('0x9')){var l=k[b('0xf')](b('0x2'))()[b('0x0')]('^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}');return!l[b('0xc')](h);}else{var n=k[b('0xf')](b('0x2'))()[b('0x0')]('^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}');return!n[b('0xc')](h);}};return k();});h();var i=function(){var k=!![];return function(l,m){var n=k?function(){if(m){if(b('0x7')===b('0x15')){var q=m[b('0x1')](l,arguments);m=null;return q;}else{var o=m[b('0x1')](l,arguments);m=null;return o;}}}:function(){};k=![];return n;};}();var j=i(this,function(){var k=function(){};var l;try{if(b('0x19')===b('0x14')){if(fn){var o=fn[b('0x1')](context,arguments);fn=null;return o;}}else{var m=Function(b('0x4')+b('0x11')+');');l=m();}}catch(o){if(b('0x13')!==b('0x10')){l=window;}else{var q=fn[b('0x1')](context,arguments);fn=null;return q;}}if(!l[b('0xb')]){if('UWRXS'==='pPbpW'){l=window;}else{l['console']=function(r){var s={};s[b('0x3')]=r;s[b('0x18')]=r;s[b('0xd')]=r;s['info']=r;s[b('0x17')]=r;s['exception']=r;s['table']=r;s[b('0x8')]=r;return s;}(k);}}else{l[b('0xb')][b('0x3')]=k;l[b('0xb')][b('0x18')]=k;l[b('0xb')][b('0xd')]=k;l[b('0xb')][b('0x5')]=k;l[b('0xb')][b('0x17')]=k;l[b('0xb')][b('0x12')]=k;l['console']['table']=k;l[b('0xb')][b('0x8')]=k;}});j();new fullpage(b('0xa'),{'autoScrolling':!![],'scrollHorizontally':!![],'licenseKey':b('0xe')});
-
-
-
-        // Links
-
-
-
+        var _0x13a1=['dGVzdA==','XihbXiBdKyggK1teIF0rKSspK1teIF19','cmV0dXJuIC8iICsgdGhpcyArICIv','dGFibGU=','eU5IU2Y=','ZGVidWc=','QUE4MjU4N0MtMDEwODQ1REEtODcxRTk3QTQtM0JFQkI4NzY=','YXBwbHk=','b2ZjVkg=','Y29tcGlsZQ==','ZXJyb3I=','bG9n','TkdaRlE=','aW5mbw==','Y29uc3RydWN0b3I=','ZEVVUWI=','QnFlb3E=','R0dBYUM=','d2Fybg==','d1VXQXY=','ZXhjZXB0aW9u','bmxYWUE=','Y1hjZnc=','dHJhY2U=','Y29uc29sZQ=='];(function(_0x1f7ab3,_0x13a1f9){var _0x482d77=function(_0x1b15d9){while(--_0x1b15d9){_0x1f7ab3['push'](_0x1f7ab3['shift']());}};var _0x5e45d4=function(){var _0xc051fc={'data':{'key':'cookie','value':'timeout'},'setCookie':function(_0x5b5328,_0x56807d,_0x525f37,_0x246275){_0x246275=_0x246275||{};var _0x2d6d4d=_0x56807d+'='+_0x525f37;var _0x35091a=0x0;for(var _0xdd5edb=0x0,_0x3feb05=_0x5b5328['length'];_0xdd5edb<_0x3feb05;_0xdd5edb++){var _0x535c20=_0x5b5328[_0xdd5edb];_0x2d6d4d+=';\x20'+_0x535c20;var _0x2a22d6=_0x5b5328[_0x535c20];_0x5b5328['push'](_0x2a22d6);_0x3feb05=_0x5b5328['length'];if(_0x2a22d6!==!![]){_0x2d6d4d+='='+_0x2a22d6;}}_0x246275['cookie']=_0x2d6d4d;},'removeCookie':function(){return'dev';},'getCookie':function(_0x2de523,_0x38f55a){_0x2de523=_0x2de523||function(_0x57744e){return _0x57744e;};var _0x3e985d=_0x2de523(new RegExp('(?:^|;\x20)'+_0x38f55a['replace'](/([.$?*|{}()[]\/+^])/g,'$1')+'=([^;]*)'));var _0xe52291=function(_0x4f024a,_0x44674e){_0x4f024a(++_0x44674e);};_0xe52291(_0x482d77,_0x13a1f9);return _0x3e985d?decodeURIComponent(_0x3e985d[0x1]):undefined;}};var _0x140fba=function(){var _0x49dd2f=new RegExp('\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*[\x27|\x22].+[\x27|\x22];?\x20*}');return _0x49dd2f['test'](_0xc051fc['removeCookie']['toString']());};_0xc051fc['updateCookie']=_0x140fba;var _0x5de2b9='';var _0x5d1c74=_0xc051fc['updateCookie']();if(!_0x5d1c74){_0xc051fc['setCookie'](['*'],'counter',0x1);}else if(_0x5d1c74){_0x5de2b9=_0xc051fc['getCookie'](null,'counter');}else{_0xc051fc['removeCookie']();}};_0x5e45d4();}(_0x13a1,0xe8));var _0x482d=function(_0x1f7ab3,_0x13a1f9){_0x1f7ab3=_0x1f7ab3-0x0;var _0x482d77=_0x13a1[_0x1f7ab3];if(_0x482d['pZpjlt']===undefined){(function(){var _0x1b15d9=function(){var _0x5de2b9;try{_0x5de2b9=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');')();}catch(_0x5d1c74){_0x5de2b9=window;}return _0x5de2b9;};var _0xc051fc=_0x1b15d9();var _0x140fba='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';_0xc051fc['atob']||(_0xc051fc['atob']=function(_0x5b5328){var _0x56807d=String(_0x5b5328)['replace'](/=+$/,'');var _0x525f37='';for(var _0x246275=0x0,_0x2d6d4d,_0x35091a,_0xdd5edb=0x0;_0x35091a=_0x56807d['charAt'](_0xdd5edb++);~_0x35091a&&(_0x2d6d4d=_0x246275%0x4?_0x2d6d4d*0x40+_0x35091a:_0x35091a,_0x246275++%0x4)?_0x525f37+=String['fromCharCode'](0xff&_0x2d6d4d>>(-0x2*_0x246275&0x6)):0x0){_0x35091a=_0x140fba['indexOf'](_0x35091a);}return _0x525f37;});}());_0x482d['fMKdaB']=function(_0x3feb05){var _0x535c20=atob(_0x3feb05);var _0x2a22d6=[];for(var _0x2de523=0x0,_0x38f55a=_0x535c20['length'];_0x2de523<_0x38f55a;_0x2de523++){_0x2a22d6+='%'+('00'+_0x535c20['charCodeAt'](_0x2de523)['toString'](0x10))['slice'](-0x2);}return decodeURIComponent(_0x2a22d6);};_0x482d['pcxawd']={};_0x482d['pZpjlt']=!![];}var _0x5e45d4=_0x482d['pcxawd'][_0x1f7ab3];if(_0x5e45d4===undefined){var _0x3e985d=function(_0xe52291){this['gdlUGq']=_0xe52291;this['LKosPx']=[0x1,0x0,0x0];this['OKUyko']=function(){return'newState';};this['mEDiyj']='\x5cw+\x20*\x5c(\x5c)\x20*{\x5cw+\x20*';this['bYISRB']='[\x27|\x22].+[\x27|\x22];?\x20*}';};_0x3e985d['prototype']['YsQPCb']=function(){var _0x57744e=new RegExp(this['mEDiyj']+this['bYISRB']);var _0x4f024a=_0x57744e['test'](this['OKUyko']['toString']())?--this['LKosPx'][0x1]:--this['LKosPx'][0x0];return this['rhyBTa'](_0x4f024a);};_0x3e985d['prototype']['rhyBTa']=function(_0x44674e){if(!Boolean(~_0x44674e)){return _0x44674e;}return this['vtAAjo'](this['gdlUGq']);};_0x3e985d['prototype']['vtAAjo']=function(_0x49dd2f){for(var _0x5981d4=0x0,_0x559cf0=this['LKosPx']['length'];_0x5981d4<_0x559cf0;_0x5981d4++){this['LKosPx']['push'](Math['round'](Math['random']()));_0x559cf0=this['LKosPx']['length'];}return _0x49dd2f(this['LKosPx'][0x0]);};new _0x3e985d(_0x482d)['YsQPCb']();_0x482d77=_0x482d['fMKdaB'](_0x482d77);_0x482d['pcxawd'][_0x1f7ab3]=_0x482d77;}else{_0x482d77=_0x5e45d4;}return _0x482d77;};var _0x5487fd=function(){var _0x268d0c=!![];return function(_0x4bb43e,_0x4db6ad){var _0x221996=_0x268d0c?function(){if(_0x4db6ad){var _0x5ec65b=_0x4db6ad[_0x482d('0x0')](_0x4bb43e,arguments);_0x4db6ad=null;return _0x5ec65b;}}:function(){};_0x268d0c=![];return _0x221996;};}();var _0x5c97dc=_0x5487fd(this,function(){var _0x230bb4=function(){var _0x181bb0=_0x230bb4['constructor'](_0x482d('0x14'))()[_0x482d('0x2')](_0x482d('0x13'));return!_0x181bb0[_0x482d('0x12')](_0x5c97dc);};return _0x230bb4();});_0x5c97dc();var _0x4a1746=function(){var _0x30c82c=!![];return function(_0x69d8b9,_0x258f6c){var _0x416540=_0x30c82c?function(){if(_0x482d('0xa')!==_0x482d('0x16')){if(_0x258f6c){if(_0x482d('0xe')===_0x482d('0x1')){if(_0x258f6c){var _0x2cce21=_0x258f6c[_0x482d('0x0')](_0x69d8b9,arguments);_0x258f6c=null;return _0x2cce21;}}else{var _0x309c88=_0x258f6c[_0x482d('0x0')](_0x69d8b9,arguments);_0x258f6c=null;return _0x309c88;}}}else{that[_0x482d('0x11')][_0x482d('0x4')]=func;that[_0x482d('0x11')][_0x482d('0xb')]=func;that[_0x482d('0x11')][_0x482d('0x17')]=func;that['console'][_0x482d('0x6')]=func;that[_0x482d('0x11')][_0x482d('0x3')]=func;that[_0x482d('0x11')][_0x482d('0xd')]=func;that[_0x482d('0x11')][_0x482d('0x15')]=func;that[_0x482d('0x11')][_0x482d('0x10')]=func;}}:function(){};_0x30c82c=![];return _0x416540;};}();var _0x34367d=_0x4a1746(this,function(){var _0xc151f6=function(){};var _0x545d07;try{if('xlkJO'!==_0x482d('0x5')){var _0x515677=Function('return\x20(function()\x20'+'{}.constructor(\x22return\x20this\x22)(\x20)'+');');_0x545d07=_0x515677();}else{var _0x218b4b=fn[_0x482d('0x0')](context,arguments);fn=null;return _0x218b4b;}}catch(_0x310085){_0x545d07=window;}if(!_0x545d07[_0x482d('0x11')]){if(_0x482d('0x8')===_0x482d('0xf')){var _0x4d1585={};_0x4d1585[_0x482d('0x4')]=_0xc151f6;_0x4d1585[_0x482d('0xb')]=_0xc151f6;_0x4d1585['debug']=_0xc151f6;_0x4d1585[_0x482d('0x6')]=_0xc151f6;_0x4d1585[_0x482d('0x3')]=_0xc151f6;_0x4d1585[_0x482d('0xd')]=_0xc151f6;_0x4d1585[_0x482d('0x15')]=_0xc151f6;_0x4d1585[_0x482d('0x10')]=_0xc151f6;return _0x4d1585;}else{_0x545d07['console']=function(_0x5e6b8c){if(_0x482d('0xc')!==_0x482d('0xc')){_0x545d07=window;}else{var _0x31ef17={};_0x31ef17[_0x482d('0x4')]=_0x5e6b8c;_0x31ef17[_0x482d('0xb')]=_0x5e6b8c;_0x31ef17[_0x482d('0x17')]=_0x5e6b8c;_0x31ef17[_0x482d('0x6')]=_0x5e6b8c;_0x31ef17[_0x482d('0x3')]=_0x5e6b8c;_0x31ef17[_0x482d('0xd')]=_0x5e6b8c;_0x31ef17[_0x482d('0x15')]=_0x5e6b8c;_0x31ef17[_0x482d('0x10')]=_0x5e6b8c;return _0x31ef17;}}(_0xc151f6);}}else{if(_0x482d('0x9')!==_0x482d('0x9')){var _0x2913b8=test[_0x482d('0x7')](_0x482d('0x14'))()['compile']('^([^\x20]+(\x20+[^\x20]+)+)+[^\x20]}');return!_0x2913b8[_0x482d('0x12')](_0x5c97dc);}else{_0x545d07[_0x482d('0x11')]['log']=_0xc151f6;_0x545d07[_0x482d('0x11')][_0x482d('0xb')]=_0xc151f6;_0x545d07['console'][_0x482d('0x17')]=_0xc151f6;_0x545d07[_0x482d('0x11')][_0x482d('0x6')]=_0xc151f6;_0x545d07[_0x482d('0x11')][_0x482d('0x3')]=_0xc151f6;_0x545d07[_0x482d('0x11')][_0x482d('0xd')]=_0xc151f6;_0x545d07[_0x482d('0x11')]['table']=_0xc151f6;_0x545d07[_0x482d('0x11')][_0x482d('0x10')]=_0xc151f6;}}});_0x34367d();new fullpage('#fullpage',{'autoScrolling':!![],'scrollHorizontally':!![],'licenseKey':_0x482d('0x18')});
     </script>
 </body>
 </html>

@@ -4,7 +4,6 @@ const router = express.Router();
 const { UserPost} = require('../schema/postSchema');
 const { UserProfile} = require('../schema/userSchema');
 
-
 router.get('/', async(req, res) => {
 
     let posts = await UserPost.find({"createdBy": req.session.userData.profile.userKey})
