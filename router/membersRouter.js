@@ -24,11 +24,10 @@ router.get('/create/post', (req, res) => {
 
 
 router.get('/posts/:id', async(req, res) => {
-    const post = await UserPost.findOne({_id: req.params.id})
-    // res.json({
-    //     message: "Post Found",
-    //     data: post
-    // })
+    const post = await UserPost
+        .findOne({"_id": req.params.id})
+        .populate('createdBy', 'username')
+    console.log(post)
     res.render('userPost', {session: req.session ? req.session.userData : null, post})
 })
 // POST PUT DEL

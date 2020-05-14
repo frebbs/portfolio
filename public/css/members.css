@@ -54,6 +54,20 @@ a {
 
 }
 
+/* User Post Start*/
+
+#userPost {
+    display: flex;
+    width: 900px;
+    flex-direction: column;
+}
+
+#postImg {
+
+}
+
+/* User Post End*/
+
 /* Profile */
 
 .user-photo img {
