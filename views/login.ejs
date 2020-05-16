@@ -1,0 +1,41 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/homepage.css">
+
+<body>
+
+    <%- include ('./partials/_navigation') %>
+
+    <div id="jsContent" class="container">
+        <div class="item login loginslide">
+            <div class="loginForm">
+                <form action="/login/user" method="POST">
+                    <h2>Login here</h2>
+                    <div class="input-item loginslide1">
+                        <p>Email:</p> <input type="email" name="email" class="email">
+                    </div>
+                    <div class="input-item loginslide2">
+                        <p>Password:</p> <input type="password" name="password" class="password">
+                    </div>
+                    <div class="input-item loginslide3 loginBtn">
+                        <button id="loginBtn">Login</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="/JavaScript/jQuery.js"></script>
+</body>
+</html>
+
+
+
+

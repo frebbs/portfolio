@@ -6,10 +6,11 @@
     <title>Main Page</title>
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/css/fullpage.css">
 <link rel="stylesheet" href="/css/homepage.css">
 
 <body>
+
+    <%- include ('./partials/_navigation') %>
 
     <div id="jsContent" class="container">
         <div id="fullpage">
@@ -17,82 +18,15 @@
                 <div class="slide">
                     <div class="item">
                         <p class="portfolioP"><i>A developers portfolio</i></p>
+                        <p class="portfolioPunder"><i>Work in progress</i></p>
                     </div>
                 </div>
-                <div class="slide">
-                    <div class="item recentPosts">
-                        <h3>Recent posts</h3>
-                        <div id="userPosts">
-                            <% posts.forEach((post) => { %>
-                                <div class="post">
-                                    <img class="postImg" src="<%= post.postImg%>" height="100px">
-                                    <p class="postTitle"><i>Title: <%= post.title %></i></p>
-                                    <p class="PostBodyPart"><i><%= post.body %></i></p>
-                                    <p class="postedCreatedBy">Posted By: <%= post.createdBy.username %></p>
-                                    <a href="/members/posts/<%= post._id%>">Show full post</a>
-                                </div>
-                            <% }) %>
-                        </div>
-                    </div>
-                </div>
-                <%if (!session) {%>
-                <div class="slide">
-                    <div class="item login">
-                        <div class="loginForm">
-                            <form action="/login/user" method="POST">
-                                <h2>Login here</h2>
-                                <div class="input-item">
-                                    <p>Email:</p> <input type="email" name="email" class="email">
-                                </div>
-                                <div class="input-item">
-                                    <p>Password:</p> <input type="password" name="password" class="password">
-                                </div>
-                                <div class="input-item loginBtn">
-                                    <button id="loginBtn">Login</button>
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-                <div class="slide">
-                    <div class="registerForm item animated">
-                        <form action="/register/user" method="POST">
-                            <h2>Register now!</h2>
-                            <div class="input-item">
-                                <p>Email:</p> <input type="email" name="email" class="email">
-                            </div>
-                            <div class="input-item">
-                                <p>Username:</p> <input type="text" name="username" class="username">
-                            </div>
-                            <div class="input-item">
-                                <p>Password:</p> <input type="password" name="password" class="password">
-                            </div>
-                            <div class="input-item">
-                                <p>Confirm password:</p> <input type="password" name="password2" class="password2">
-                            </div>
-                            <div class="input-item loginBtn">
-                                <button id="registerBtn">Register</button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <% } %>
+                
             </div>
         </div>
     </div>
 <!--    Nav to be included at the end of content otherwise covered by Javascript frame -->
-    <%- include ('./partials/_navigation') %>
 
     <script src="/JavaScript/jQuery.js"></script>
-    <script src="/JavaScript/fullpage.js"></script>
-    <script src="/JavaScript/fullpage.extensions.min.js"></script>
-    <script>
-        //    FullPage JS
-        let profile = 'QUE4MjU4N0MtMDEwODQ1REEtODcxRTk3QTQtM0JFQkI4NzY='
-        new fullpage('#fullpage', {
-            autoScrolling: true,
-            scrollHorizontally: true,
-            licenseKey: atob(profile)
-        })    </script>
 </body>
 </html>

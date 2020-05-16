@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+</head>
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/homepage.css">
+
+<body>
+
+    <%- include ('./partials/_navigation') %>
+
+    <div id="jsContent" class="container">
+        <div class="registerForm item animated registerSlideIn1">
+            <form action="/register/user" method="POST">
+                <h2>Register now!</h2>
+                <div class="input-item registerSlideIn2">
+                    <p>Email:</p> <input type="email" name="email" class="email">
+                </div>
+                <div class="input-item registerSlideIn3">
+                    <p>Username:</p> <input type="text" name="username" class="username">
+                </div>
+                <div class="input-item registerSlideIn4">
+                    <p>Password:</p> <input type="password" name="password" class="password">
+                </div>
+                <div class="input-item registerSlideIn5">
+                    <p>Confirm password:</p> <input type="password" name="password2" class="password2">
+                </div>
+                <div class="input-item loginBtn registerSlideIn6">
+                    <button id="registerBtn">Register</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/JavaScript/jQuery.js"></script>
+</body>
+</html>

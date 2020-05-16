@@ -13,8 +13,82 @@ a {
 
 .portfolioP {
     font-size: 5rem;
+    animation-duration: 2s;
+    animation-name: slidein;
 }
 
+.portfolioPunder {
+    font-size: 4.5rem;
+    animation-duration: 2.5s;
+    animation-name: slidein;
+} 
+
+.loginslide {
+    animation-duration: 1.75s;
+    animation-name: slideinUnder;
+}
+.loginslide1 {
+    animation-duration: 2s;
+    animation-name: slideinUnder;
+}
+.loginslide2 {
+    animation-duration: 2.5s;
+    animation-name: slideinUnder;
+}
+.loginslide3 {
+    animation-duration: 3s;
+    animation-name: slideinUnder;
+}
+
+.registerSlideIn1 {
+    animation-duration: 3s;
+    animation-name: slideinUnder;
+}
+
+.registerSlideIn2 {
+    animation-duration: 1s;
+    animation-name: slideinUnder;
+}
+.registerSlideIn3 {
+    animation-duration: 1.5s;
+    animation-name: slideinUnder;
+}
+.registerSlideIn4 {
+    animation-duration: 2s;
+    animation-name: slideinUnder;
+}
+.registerSlideIn5 {
+    animation-duration: 2.5s;
+    animation-name: slideinUnder;
+}
+.registerSlideIn6 {
+    animation-duration: 3s;
+    animation-name: slideinUnder;
+}
+
+@keyframes slidein{
+    from {
+        margin-left: 100%;
+        width: 300%; 
+      }
+    
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+}
+
+@keyframes slideinUnder{
+    from {
+        margin-left: 100%;
+        width: 300%; 
+      }
+    
+      to {
+        margin-left: 0%;
+        width: 100%;
+      }
+} 
 .post {
     padding-left: 20px;
 }

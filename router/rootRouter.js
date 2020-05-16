@@ -22,11 +22,18 @@ router.get('/json/:id', async(req, res) => {
     res.json(users);
 });
 
+router.get('/login/user', (req, res) => {
+    res.render('login', {session: req.session ? req.session.userData : null});
+})
+
 router.get('/logout/user', (req, res) => {
     req.session = null;
     res.redirect('/')
 })
 
+router.get('/register/user', (req, res) => {
+    res.render('register', {session: req.session ? req.session.userData : null})
+})
 
 
 
