@@ -1,15 +1,26 @@
 <link rel="stylesheet" href="/css/nav.css">
 <div class="flex-container animated">
-    <h1 class="logo"><a class="link-item changeColor" href="/">jAd</a></h1>
+    <h1 class="logo"><a class="link-item changeColor" href="/">JAD</a></h1>
     <ul class="navigation">
-        <% if (!session) { %>
-           <li><a class="link-item changeColor" id="loginLink" href="/login/user">Login</a></li>
-           <li><a class="link-item changeColor" id="registerLink" href="/register/user">Register</a></li>
-        <% } else { %>
+        <li>
+            <div class="dropdown">
+                <a class="dropbtn">Links</a>
+                <div class="dropdown-content">
+                    <a id="homeLink" href="/">Home</a>
+                    <a id="aboutDev" href="/about">About Me</a>
+                    <a id="aboutSite" href="#">About Site</a>
+                    <% if (!session) { %>
+                        <a class="link-item changeColor" id="loginLink" href="/login/user">Login</a>
+                        <a class="link-item changeColor" id="registerLink" href="/register/user">Register</a>
+                    <% } %>
+                </div>
+            </div>
+        </li>
+        <%if (session) { %>
             <li><a class="link-item changeColor" href="/members">Home</a></li>
             <li>
                 <div class="dropdown">
-                    <a class="dropbtn">Actions</a>
+                    <a class="dropbtn dropdownActions">Actions</a>
                     <div class="dropdown-content">
                         <a id="blogPostLink" href="/members/create/post">Create a Blog Post</a>
                         <a id="editProfile" href="#">Edit your Profile</a>

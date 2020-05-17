@@ -17,6 +17,10 @@ router.get('/', async(req, res) => {
     res.render('index', {session: req.session ? req.session.userData : null, posts});
 });
 
+router.get('/about', (req, res) => {
+    res.render('about', {session: req.session ? req.session.userData : null});
+})
+
 router.get('/json/:id', async(req, res) => {
     let users = await UserProfile.findOne({"username": req.params.id}).populate("posts")
     res.json(users);

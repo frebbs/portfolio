@@ -8,27 +8,26 @@
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/homepage.css">
+<link rel="stylesheet" href="/css/animations.css">
 
 <body>
 
     <%- include ('./partials/_navigation') %>
 
     <div id="jsContent" class="container">
-        <div class="item login">
-            <div class="loginForm">
-                <form action="/login/user" method="POST">
-                    <h2>Login here</h2>
-                    <div class="input-item">
-                        <p>Email:</p> <input type="email" name="email" class="email">
-                    </div>
-                    <div class="input-item">
-                        <p>Password:</p> <input type="password" name="password" class="password">
-                    </div>
-                    <div class="input-item loginBtn">
-                        <button id="loginBtn">Login</button>
-                    </div>
-                </form>
-            </div>
+        <div class="loginForm slideInLeft">
+            <form action="/login/user" method="POST">
+                <h2>Login here</h2>
+                <div class="input-item">
+                    <p>Email:</p> <input type="email" name="email" class="email">
+                </div>
+                <div class="input-item">
+                    <p>Password:</p> <input type="password" name="password" class="password">
+                </div>
+                <div class="input-item loginBtn">
+                    <button id="loginBtn">Login</button>
+                </div>
+            </form>
         </div>
     </div>
 

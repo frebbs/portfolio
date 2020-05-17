@@ -13,13 +13,9 @@
     <%- include ('./partials/_navigation') %>
 
     <div id="jsContent" class="container">
-        <div id="fullpage">
-            <div class="section">
-                <div class="item">
-                    <p class="portfolioP rightSlideIn"><i>A developers portfolio</i></p>
-                    <p class="portfolioPunder slideInLeft"><i>Work in progress</i></p>
-                </div>       
-            </div>
+        <div class="section">
+                <p class="portfolioP slideInLeft"><i>JAD-dev.co.uk</i></p>
+                <p class="portfolioPunder rightSlideIn"><i>A portfolio by <span id='sendToAbout'>Aaron</span></i></p>    
         </div>
     </div>
 <!--    Nav to be included at the end of content otherwise covered by Javascript frame -->
@@ -50,6 +46,14 @@
         
 
         console.log(element)
+    </script>
+
+    <script>
+        let sendToAbout = document.querySelector('#sendToAbout');
+
+        sendToAbout.addEventListener('click', (e) => {
+            console.log(e)
+        })
     </script>
 </body>
 </html>

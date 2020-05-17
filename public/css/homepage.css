@@ -15,34 +15,20 @@ a {
     font-size: 5rem;
     animation-duration: 2s;
     animation-name: slidein;
+    text-align: center;
 }
 
 .portfolioPunder {
     font-size: 4.5rem;
-    animation-duration: 2.5s;
-    animation-name: slidein;
+    text-align: center;
 } 
 
-
-.post {
-    padding-left: 20px;
-}
 .container {
     height: 100vh;
     display: flex;
     background-color: #0D0C0C;
     align-items: center;
     justify-content: center;
-}
-
-.item {
-    text-align: center;
-}
-
-h3 {
-    padding-bottom: 0;
-    margin: 0;
-    text-align: center;
 }
 
 /* Start User Posts*/
@@ -68,28 +54,6 @@ h3 {
 /* End User Posts*/
 
 
-/*.item p {*/
-/*    font-size: 5rem;*/
-/*    text-align: center;*/
-/*}*/
-
-/*div.item.recentPosts {*/
-/*    text-align: left;*/
-/*}*/
-p.postTitle {
-    font-weight: bolder;
-}
-
-
-.littleP {
-    color: #807C7C;
-}
-
-
-.changeColor {
-    transition: color 2s;
-}
-
 
 /* Register Form */
 
@@ -108,6 +72,8 @@ form h2 {
 }
 
 /* End Register Form */
+
+/* Login Form */
 
 .loginForm {
     padding: 75px;
@@ -152,3 +118,39 @@ input {
     justify-content: center;
 }
 
+/* End Login Form */
+
+/* About Page Starts */
+
+
+
+#profile {
+    display: flex;
+    flex-direction: column;
+}
+
+.profileImage  {
+    display: flex;
+    width: 80vw;
+
+}
+
+.profileImage img {
+    border-radius: 10px;
+}
+
+.profileImage h3 {
+    font-size: 4rem;
+    padding-left: 100px;
+}
+
+.profileImage p {
+    font-size: 4rem;
+    padding-left: 100px;
+}
+
+#sendToAbout:hover {
+    cursor: grab;
+    color: lightskyblue;
+}
+/* About Page Ends */
