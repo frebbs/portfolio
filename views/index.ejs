@@ -7,7 +7,7 @@
 </head>
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/css/homepage.css">
-
+<link rel="stylesheet" href="/css/animations.css">
 <body>
 
     <%- include ('./partials/_navigation') %>
@@ -15,18 +15,41 @@
     <div id="jsContent" class="container">
         <div id="fullpage">
             <div class="section">
-                <div class="slide">
-                    <div class="item">
-                        <p class="portfolioP"><i>A developers portfolio</i></p>
-                        <p class="portfolioPunder"><i>Work in progress</i></p>
-                    </div>
-                </div>
-                
+                <div class="item">
+                    <p class="portfolioP rightSlideIn"><i>A developers portfolio</i></p>
+                    <p class="portfolioPunder slideInLeft"><i>Work in progress</i></p>
+                </div>       
             </div>
         </div>
     </div>
 <!--    Nav to be included at the end of content otherwise covered by Javascript frame -->
 
     <script src="/JavaScript/jQuery.js"></script>
+
+    <script>
+        let element = document.querySelector('.rightSlideIn')
+
+        element.addEventListener('animationstart', listener, false);
+        element.addEventListener('animationend', listener, false);
+        element.addEventListener('animationiteration', listener, false);
+
+        function listener(event) {
+            var l = document.createElement("li");
+            switch(event.type) {
+                case "animationstart":
+                    console.log("Started: elapsed time is " + event.elapsedTime)
+                break;
+                case "animationend":
+                    console.log("Ended: elapsed time is " + event.elapsedTime)
+                break;
+                case "animationiteration":
+                    console.log("New loop started at time " + event.elapsedTime)
+                break;
+            }
+            }
+        
+
+        console.log(element)
+    </script>
 </body>
 </html>

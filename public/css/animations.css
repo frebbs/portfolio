@@ -1,0 +1,42 @@
+.section {
+    overflow: hidden;
+    /* width: 700px; */
+}
+
+.rightSlideIn {
+    animation-duration: 3s;
+    animation-name: slideInRight;
+}
+
+.slideInLeft {
+
+    animation-name: slideInLeft;
+    animation-duration: 3s;
+    animation-fill-mode: both;
+}
+
+
+
+@keyframes slideInRight {
+    from {
+        margin-left: 100%;
+        width: 300%;
+    }
+
+    to {
+        margin-left: 0%;
+        width: 100%;
+    }
+}
+
+
+@keyframes slideInLeft {
+    0% {
+        transform: translateX(-100%);
+        visibility: visible;
+    }
+        100% {
+        transform: translateX(0);
+    }
+} 
+  
